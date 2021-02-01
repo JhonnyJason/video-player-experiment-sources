@@ -6,10 +6,12 @@
 
 mkdir -p output/img
 mkdir -p output/font
+mkdir -p output/vtt
 
 ## app files
 cp sources/ressources/font/* output/font/
 cp sources/ressources/img/* output/img/
+cp sources/ressources/vtt/* output/vtt/
 
 cp sources/ressources/favicon/* output/
 cp sources/ressources/manifest/* output/
