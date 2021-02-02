@@ -1,3 +1,24 @@
 // videoplayer styles
 #videoplayer
     width 100%
+    position relative
+    video 
+        width 100%
+        z-index 1
+    overflow: hidden
+
+#play-button
+    position absolute
+    left 50%
+    top: 50%
+    transform: translate(-50%,-50%)
+    background-color rgba(0,0,0, 0.5)
+    padding 1024px
+    height 50%
+    width 50%
+    cursor pointer
+    z-index 2
+    transition opacity 0.3s
+
+#play-button.hidden
+    opacity 0
