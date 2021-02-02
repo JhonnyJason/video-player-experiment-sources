@@ -11,19 +11,22 @@ print = (arg) -> console.log(arg)
 
 ############################################################
 playButton = null
-videoFrame = null
+videoContainer = null
+videoplayer = null
 buttonFadeout = false
 
 
 ############################################################
 videoplayermodule.initialize = () ->
     log "videoplayermodule.initialize"
+    videoContainer = document.getElementById("videoContainer")
     videoplayer = document.getElementById("videoplayer")
     playButton = document.getElementById("play-button")
-    videoButton = document.getElementById("video-frame")
 
     playButton.addEventListener("click", playButtonClicked)
-    videoFrame.addEventListener("click", videoFrameClicked)
+    playButton.addEventListener("transitionend", transitionEnded)
+    videoplayer.addEventListener("play", onPlay)
+    videoplayer.addEventListener("pause", onPause)    
     return
     
 ############################################################
@@ -33,9 +36,22 @@ playButtonClicked = ->
     buttonFadeout = true
     return
 
-videoFrameClicked = ->
-    log "videoFrameClicked"
-    
+transitionEnded = ->
+    log "transitionEnded"
+    if buttonFadeout then videoplayer.play()
+    else playButton.classList.remove("hidden")
+    buttonFadeout = false
+    return
+
+onPlay = ->
+    log "onPlay"
+    playButton.classList.add("hidden")
+    return
+
+onPause = ->
+    log "onPause"
+    playButton.classList.remove("hidden")
+    playButton.classList.remove("fadeout")
     return
 
 

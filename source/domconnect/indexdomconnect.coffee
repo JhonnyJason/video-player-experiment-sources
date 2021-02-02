@@ -2,7 +2,7 @@ indexdomconnect = {name: "indexdomconnect"}
 
 ############################################################
 indexdomconnect.initialize = () ->
-    global.videoFrame = document.getElementById("video-frame")
+    global.videoplayer = document.getElementById("videoplayer")
     global.playButton = document.getElementById("play-button")
     return
     

@@ -1,6 +1,6 @@
 //- videoplayer structure
-#videoplayer
-    video#video-frame(autoplay controls controlsList="timeline fullscreen nodownload noplay")
+#video-container
+    video#videoplayer(autoplay controls controlsList="timeline fullscreen nodownload noplay")
         source(src="https://videomat.org/vmt-ssd/202012081520mrks.mp4" type="video/mp4")
         track(src="/vtt/sample.vtt" default)
     svg#play-button(viewBox="0 0 24 24")

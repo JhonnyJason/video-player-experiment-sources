@@ -7,6 +7,7 @@ debugmodule.initialize = () ->
 
 debugmodule.modulesToDebug = 
     unbreaker: true
-    configmodule: true
+    # configmodule: true
+    videoplayermodule: true
 
 export default debugmodule
