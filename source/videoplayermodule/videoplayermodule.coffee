@@ -46,12 +46,14 @@ transitionEnded = ->
 onPlay = ->
     log "onPlay"
     playButton.classList.add("hidden")
+    videoplayer.setAttribute("controls", true)
     return
 
 onPause = ->
     log "onPause"
     playButton.classList.remove("hidden")
     playButton.classList.remove("fadeout")
+    videoplayer.removeAttribute("controls")
     return
 
 
