@@ -27,6 +27,8 @@ videoplayermodule.initialize = () ->
     playButton.addEventListener("transitionend", transitionEnded)
     videoplayer.addEventListener("play", onPlay)
     videoplayer.addEventListener("pause", onPause)    
+
+    if !videoplayer.paused then setStatePlaying() 
     return
     
 ############################################################
@@ -45,16 +47,25 @@ transitionEnded = ->
 
 onPlay = ->
     log "onPlay"
-    playButton.classList.add("hidden")
-    videoplayer.setAttribute("controls", true)
+    setStatePlaying()
     return
 
 onPause = ->
     log "onPause"
+    setStatePaused()
+    return
+
+setStatePlaying = ->
+    log "setStatePlaying"
+    playButton.classList.add("hidden")
+    videoplayer.setAttribute("controls", true)
+    return
+
+setStatePaused = ->
+    log "setStatePaused"
     playButton.classList.remove("hidden")
     playButton.classList.remove("fadeout")
     videoplayer.removeAttribute("controls")
     return
-
 
 module.exports = videoplayermodule
