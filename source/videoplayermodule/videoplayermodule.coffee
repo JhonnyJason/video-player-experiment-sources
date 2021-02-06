@@ -17,7 +17,7 @@ buttonFadeout = false
 
 
 ############################################################
-videoplayermodule.initialize = () ->
+videoplayermodule.initialize = ->
     log "videoplayermodule.initialize"
     videoContainer = document.getElementById("videoContainer")
     videoplayer = document.getElementById("videoplayer")
@@ -27,6 +27,7 @@ videoplayermodule.initialize = () ->
     playButton.addEventListener("transitionend", transitionEnded)
     videoplayer.addEventListener("play", onPlay)
     videoplayer.addEventListener("pause", onPause)    
+    videoplayer.addEventListener("loadedmetadata", setRandomCurrentTime)
 
     if !videoplayer.paused then setStatePlaying() 
     return
@@ -66,6 +67,11 @@ setStatePaused = ->
     playButton.classList.remove("hidden")
     playButton.classList.remove("fadeout")
     videoplayer.removeAttribute("controls")
+    return
+
+############################################################
+setRandomCurrentTime = ->
+    videoplayer.currentTime = Math.random() * videoplayer.duration
     return
 
 module.exports = videoplayermodule
