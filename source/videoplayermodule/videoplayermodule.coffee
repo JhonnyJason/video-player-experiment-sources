@@ -10,19 +10,13 @@ print = (arg) -> console.log(arg)
 #endregion
 
 ############################################################
-playButton = null
-videoContainer = null
-videoplayer = null
 buttonFadeout = false
 
 
 ############################################################
 videoplayermodule.initialize = ->
     log "videoplayermodule.initialize"
-    videoContainer = document.getElementById("videoContainer")
-    videoplayer = document.getElementById("videoplayer")
-    playButton = document.getElementById("play-button")
-
+    
     playButton.addEventListener("click", playButtonClicked)
     playButton.addEventListener("transitionend", transitionEnded)
     videoplayer.addEventListener("play", onPlay)
