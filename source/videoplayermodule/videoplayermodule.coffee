@@ -12,11 +12,10 @@ print = (arg) -> console.log(arg)
 ############################################################
 buttonFadeout = false
 
-
 ############################################################
 videoplayermodule.initialize = ->
     log "videoplayermodule.initialize"
-    
+
     playButton.addEventListener("click", playButtonClicked)
     playButton.addEventListener("transitionend", transitionEnded)
     videoplayer.addEventListener("play", onPlay)
@@ -27,6 +26,7 @@ videoplayermodule.initialize = ->
     return
     
 ############################################################
+#region eventListeners
 playButtonClicked = ->
     log "playButtonClicked"
     playButton.classList.add("fadeout")
@@ -50,6 +50,13 @@ onPause = ->
     setStatePaused()
     return
 
+setRandomCurrentTime = ->
+    videoplayer.currentTime = Math.random() * videoplayer.duration
+    return
+
+#endregion
+
+############################################################
 setStatePlaying = ->
     log "setStatePlaying"
     playButton.classList.add("hidden")
@@ -63,9 +70,5 @@ setStatePaused = ->
     videoplayer.removeAttribute("controls")
     return
 
-############################################################
-setRandomCurrentTime = ->
-    videoplayer.currentTime = Math.random() * videoplayer.duration
-    return
 
 module.exports = videoplayermodule
