@@ -2,8 +2,8 @@ indexdomconnect = {name: "indexdomconnect"}
 
 ############################################################
 indexdomconnect.initialize = () ->
+    global.videoplayerAutoplay = document.getElementById("videoplayer-autoplay")
     global.videoplayer = document.getElementById("videoplayer")
-    global.playButton = document.getElementById("play-button")
     return
     
 module.exports = indexdomconnect
